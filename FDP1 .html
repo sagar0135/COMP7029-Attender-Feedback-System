@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="group-stylez.css">
+
+  <style>
+     body {
+    min-height: 100vh;
+    background-image: linear-gradient(rgb(211, 163, 221), rgb(240, 236, 119)) ;
+}
+{
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .feedback-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    h1{
+        color: #BDB76B;
+}
+    .question label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .question input[type="text"],
+    .question textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+    }
+    .question select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+    }
+    .question .radio-options {
+      display: flex;
+      align-items: center;
+    }
+    .question .radio-options label {
+      margin-right: 15px;
+    }
+    .submit-btn {
+      background-color: #4caf50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="feedback-form">
+    <h1>Academic Conference Feedback</h1>
+    <form id="feedbackForm" method="POST" action ="FDP1.php"onsubmit="return validateForm()">
+      <div class="question">
+        <label for="likedMost">What did you like most about the event?</label>
+        <textarea id="likedMost" name="likedMost" rows="4"required></textarea>
+      </div>
+      
+      <div class="question">
+        <label for="improvement">What aspects of the event could be improved?</label>
+        <textarea id="improvement" name="improvement" rows="4" required></textarea>
+      </div>
+
+       <div class="question">
+        <label for="recommendation">How likely are you to recommend this event to others?</label>
+        <select id="recommendation" name="recommendation" required>
+		<option> </option>
+          <option value="5">Very Likely</option>
+          <option value="4">Likely</option>
+          <option value="3">Neutral</option>
+          <option value="2">Unlikely</option>
+          <option value="1">Very Unlikely</option>
+        </select>
+       </div>
+
+       <div class="question">
+        <label for="overallExperience">How would you rate the overall experience of the event on a scale of 1 to 5?</label>
+        <div class="radio-options">
+            <input type="radio" name="overallExperience" value="1"> 1 <button type="submit"><img src="images/angry.png" style="height:50px;width:50px;" alt="Submit" title="Very Dissatisfied"></button>
+            <input type="radio" name="overallExperience" value="2"> 2 <button type="submit"><img src="images/sad.png" style="height:50px;width:50px;" alt="Submit" title="Disatisfied"></button>
+            <input type="radio" name="overallExperience" value="3"> 3 <button type="submit"><img src="images/meh.png" style="height:50px;width:50px;" alt="Submit" title="Neutral"></button>
+            <input type="radio" name="overallExperience" value="4"> 4 <button type="submit"><img src="images/happy.png" style="height:50px;width:50px;" alt="Submit" title="Satisfied"></button>
+            <input type="radio" name="overallExperience" value="5"> 5 <button type="submit"><img src="images/love.png" style="height:50px;width:50px;" alt="Submit" title="Very Satisfied" ></button>
+          </div>
+       </div>
+
+       <div class="question">
+        <label for="anonymityRating">How would you rate the anonymity of your responses in the feedback survey?</label>
+        <select id="anonymityRating" name="anonymityRating" required>
+		<option> </option>
+          <option value="5">Very Satisfied</option> 
+          <option value="4">Satisfied</option> 
+          <option value="3">Neutral</option> 
+          <option value="2">Dissatisfied</option> 
+          <option value="1">Very Dissatisfied</option> 
+        </select> 
+       </div>
+       <button type="submit" class="submit-btn">Submit Feedback</button> 
+     </form> 
+   </div> 
+
+   
+ </body> 
+ </html>
+
+
+

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Events</title>
+<link rel="stylesheet" href="styles.css">
+<style> 
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(rgb(211, 163, 221), rgb(240, 236, 119)) ;
+}
+{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.events-section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #8B008B;
+  margin-bottom: 10px;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+}
+
+.event-list li {
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.event-list li a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.event-list li a:hover {
+  text-decoration: underline;
+}
+p {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="events-section">
+    <h2 class="section-title">My Events</h2>
+    <ul class="event-list">
+      <li><a id="event1" href="FDP1.html">Academic Conferences</a><p id="demo1"></p></li>
+      <li><a id="event2" href="FDP2.html">Workshops and Seminars</a><p id="demo2"></p></li>
+      <li><a id="event3" href="FDP3.html">Cultural Festivals</a><p id="demo3"></p></li>
+      <!-- Add more events as needed -->
+    </ul>
+  </div>
+  <div class="events-section">
+    <h2 class="section-title">Upcoming Events</h2>
+    <ul class="event-list">
+      <li>Sports Tournaments</li>
+      <li>Hackathons</li>
+      <li>Debate Competitions</li>
+      <!-- Add more events as needed -->
+    </ul>
+  </div>
+</div>
+<script>
+// Set the dates we're counting down to for each event
+var countDownDate1 = new Date("May 5, 2024 17:30:00").getTime(); // Academic Conferences
+var countDownDate2 = new Date("May 4, 2024 16:30:00").getTime(); // Workshops and Seminars
+var countDownDate3 = new Date("May 3, 2024 15:30:00").getTime(); // Cultural Festivals
+
+// Update the count downs every 1 second for each event
+var x1 = setInterval(function() {
+  Countdown("demo1", countDownDate1);
+}, 1000);
+
+var x2 = setInterval(function() {
+  Countdown("demo2", countDownDate2);
+}, 1000);
+
+var x3 = setInterval(function() {
+  Countdown("demo3", countDownDate3);
+}, 1000);
+
+// Function to update countdown for each event
+function Countdown(elementId, countDownDate) {
+  // Get today's date and time
+  var now = new Date().getTime();
+  
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+  
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  // Output the result in an element with the provided id
+  document.getElementById(elementId).innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  
+  // If the count down is over, write some text 
+  if (distance <= 0) {
+    clearInterval(x1);
+	clearInterval(x2);
+	clearInterval(x3);
+    document.getElementById(elementId).innerHTML = "EXPIRED";
+    // Remove href attribute from the event link
+    document.getElementById("event1").removeAttribute("href");
+	document.getElementById("event2").removeAttribute("href");
+	document.getElementById("event3").removeAttribute("href");
+  }
+}
+</script>
+</body>
+</html>
+
+
+
